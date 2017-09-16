@@ -183,6 +183,20 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void removeToElement(Student student) {
 		// Add your implementation here
+		if(student==null)
+			throw new IllegalArgumentException("invalid index");
+		int index=-1;
+		for (int i = 0; i < students.length; i++) {
+            if (students[i].equals(student)) {
+                index = i;
+                break;
+            }
+        }
+			Student[] res = new Student[students.length];
+		for(int i=index;i<students.length;i++)
+			res[i]=students[i];
+		this.students = res;
+	
 	}
 
 	@Override
