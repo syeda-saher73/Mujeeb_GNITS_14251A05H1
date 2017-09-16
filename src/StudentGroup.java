@@ -181,7 +181,7 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public void removeToElement(Student student) {
+	public void removeToElement(Student student) throws IllegalArgumentException{
 		// Add your implementation here
 		if(student==null)
 			throw new IllegalArgumentException("invalid index");
@@ -218,9 +218,20 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public Student[] getByBirthDate(Date date) {
+	public Student[] getByBirthDate(Date date) throws IllegalArgumentException{
 		// Add your implementation here
-		return null;
+		if(date==null)
+			throw new IllegalArgumentException("invalid date");
+		Student[] res = new Student[students.length];
+		for(int i=0;i<students.length;i++)
+		{
+			if(students[i].getBirthDate()==date){
+				res[i]=students[i];
+			}
+		}
+		
+		
+		return res;
 	}
 
 	@Override
