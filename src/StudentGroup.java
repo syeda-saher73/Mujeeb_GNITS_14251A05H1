@@ -230,7 +230,6 @@ public class StudentGroup implements StudentArrayOperation {
 			}
 		}
 		
-		
 		return res;
 	}
 
@@ -255,13 +254,31 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getStudentsByAge(int age) {
 		// Add your implementation here
+		
+		Student[] res = new Student[students.length];
+		
 		return null;
 	}
 
 	@Override
 	public Student[] getStudentsWithMaxAvgMark() {
 		// Add your implementation here
-		return null;
+		double max=0.0;
+		Student[] res =  new Student[students.length];
+		for(int i=0;i<students.length;i++)
+		{
+			max=students[i].getAvgMark();
+			if((students[i].getAvgMark())>max)
+				max=students[i].getAvgMark();
+		}
+	for(int i=0;i<students.length;i++)
+		{
+		  if((students[i].getAvgMark())==(max))
+		  {
+			  res[i]=students[i];
+		  }
+		}
+		return res;
 	}
 
 	@Override
