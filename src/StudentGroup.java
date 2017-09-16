@@ -54,33 +54,44 @@ public class StudentGroup implements StudentArrayOperation {
 		for(int i=0;i<index;i++)
 			res[i]=students[i];
 		res[index]= student;
-		 for(int i = index + 1; i < students.length; i++)
-        res[i] = students[i - 1];
 	this.students = res;
 	}
 
 	@Override
 	public void addFirst(Student student) throws IllegalArgumentException{
 		// Add your implementation here
-		/*if(student==null)
+		if(student==null)
 			throw new IllegalArgumentException("invalid index");
-		  Student[] result = new Student[students.length];
-    
+		Student[] result = new Student[students.length];
     result[0] = student;
     for(int i = 1; i < students.length; i++)
         result[i] = students[i - 1];
-	this.students= result;*/
+	this.students= result;
 		
 	}
 
 	@Override
-	public void addLast(Student student) {
+	public void addLast(Student student) throws IllegalArgumentException{
 		// Add your implementation here
+		if(student==null)
+			throw new IllegalArgumentException("invalid index");
+		Student[] result = new Student[students.length];
+		result[students.length]=student;
+		this.students=result;
 	}
 
 	@Override
 	public void add(Student student, int index) {
 		// Add your implementation here
+		if(index<0||index>=students.length)
+			throw new IllegalArgumentException("invalid index");
+		Student[] res = new Student[students.length];
+		for(int i=0;i<index;i++)
+			res[i]=students[i];
+		res[index]= student;
+		 for(int i = index + 1; i < students.length; i++)
+        res[i] = students[i - 1];
+	this.students = res;
 	}
 
 	@Override
