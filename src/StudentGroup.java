@@ -81,7 +81,7 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public void add(Student student, int index) {
+	public void add(Student student, int index)  throws IllegalArgumentException{
 		// Add your implementation here
 		if(index<0||index>=students.length)
 			throw new IllegalArgumentException("invalid index");
@@ -95,8 +95,19 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public void remove(int index) {
+	public void remove(int index)  throws IllegalArgumentException{
 		// Add your implementation here
+		if(index<0||index>=students.length)
+			throw new IllegalArgumentException("invalid index");
+		  int shift = 0;                             
+    for (int i = 0; i < students.length; i++) {       
+        if (shift < index && i == index)  // i-th item needs to be removed
+            shift++;                            // increment `shift`
+        else 
+            students[i - shift] = students[i];                // move i-th item `shift` positions left
+    }
+    for (int i = students.length - shift; i < students.length; i++)
+        students[i] = null; 
 	}
 
 	@Override
