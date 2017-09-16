@@ -46,8 +46,17 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public void setStudent(Student student, int index) {
+	public void setStudent(Student student, int index) throws IllegalArgumentException{
 		// Add your implementation here
+		if(index<0||index>=students.length)
+			throw new IllegalArgumentException("invalid index");
+		Student[] res = new Student[students.length];
+		for(int i=0;i<index;i++)
+			res[i]=students[i];
+		res[index]= student;
+		 for(int i = index + 1; i < students.length; i++)
+        res[i] = students[i - 1];
+	this.students = res;
 	}
 
 	@Override
