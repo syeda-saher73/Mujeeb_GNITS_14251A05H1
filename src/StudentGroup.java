@@ -111,8 +111,29 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public void remove(Student student) {
+	public void remove(Student student) throws IllegalArgumentException{
 		// Add your implementation here
+		int index=-1;
+		if(student==null)
+			throw new IllegalArgumentException("Student not exist");
+		   for (int i = 0; i < students.length; i++) {
+            if (students[i].equals(student)) {
+                index = i;
+                break;
+            }
+        }
+		int shift = 0;                             
+    for (int i = 0; i < students.length; i++) {       
+        if (shift < index && i == index)  // i-th item needs to be removed
+            shift++;                            // increment `shift`
+        else 
+            students[i - shift] = students[i];                // move i-th item `shift` positions left
+    }
+    for (int i = students.length - shift; i < students.length; i++)
+        students[i] = null; 
+
+		
+		
 	}
 
 	@Override
