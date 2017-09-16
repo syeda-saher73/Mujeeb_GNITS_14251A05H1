@@ -295,6 +295,17 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student getNextStudent(Student student) {
 		// Add your implementation here
-		return null;
+			int index=-1;
+		//	Student[] res= new Student[students.length];
+			Student res;
+		for (int i = 0; i < students.length; i++) {
+            if (students[i].equals(student)) {
+                index = i;
+                break;
+            }
+        }
+		res = students[index+1];
+		
+		return res;
 	}
 }
