@@ -30,8 +30,10 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public void setStudents(Student[] students) {
+	public void setStudents(Student[] students) throws IllegalArgumentException{
 		// Add your implementation here
+		if (students == null)
+			throw new IllegalArgumentException("null argument");
 		this.students = students;
 	}
 
