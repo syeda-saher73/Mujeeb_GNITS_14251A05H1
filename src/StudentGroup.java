@@ -234,9 +234,19 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate) {
+	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate) throws IllegalArgumentException{
 		// Add your implementation here
-		return null;
+		if(firstDate==null||lastDate==null)
+			throw new IllegalArgumentException("invalid date");
+		Student[] res = new Student[students.length];
+		for(int i=0,k=0;i<students.length;i++)
+		{
+			if(students[i].getBirthDate().compareTo(firstDate)>0||students[i].getBirthDate().compareTo(lastDate)<0){
+				res[k]=students[i];
+				k++;
+			}
+		}
+		return res;
 	}
 
 	@Override
