@@ -62,14 +62,14 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void addFirst(Student student) throws IllegalArgumentException{
 		// Add your implementation here
-		if(student==null)
+		/*if(student==null)
 			throw new IllegalArgumentException("invalid index");
 		  Student[] result = new Student[students.length];
     
     result[0] = student;
     for(int i = 1; i < students.length; i++)
         result[i] = students[i - 1];
-	this.students= result;
+	this.students= result;*/
 		
 	}
 
