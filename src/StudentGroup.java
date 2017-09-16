@@ -168,8 +168,16 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public void removeToIndex(int index) {
+	public void removeToIndex(int index) throws IllegalArgumentException{
 		// Add your implementation here
+		if(index<0||index>=students.length)
+			throw new IllegalArgumentException("invalid index");
+		
+		Student[] res = new Student[students.length];
+		for(int i=index;i<students.length;i++)
+			res[i]=students[i];
+		this.students = res;
+		
 	}
 
 	@Override
