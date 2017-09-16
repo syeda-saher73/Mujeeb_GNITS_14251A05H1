@@ -225,7 +225,7 @@ public class StudentGroup implements StudentArrayOperation {
 		Student[] res = new Student[students.length];
 		for(int i=0;i<students.length;i++)
 		{
-			if(students[i].getBirthDate()==date){
+			if(students[i].getBirthDate().compareTo(date)==0){
 				res[i]=students[i];
 			}
 		}
